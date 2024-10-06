@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+{% load static %} <!-- This loads the static files template tag -->
+
+{% block body %}
+<style>
+  /* Limit the size of the carousel container */
+  /* Light-colored carousel controls */
+  .carousel {
+    width: 100%;       /* Full width of the page */
+    /* Fixed height for rectangle shape */
+  }
+
+  /* Force images to fit within the carousel height */
+  .carousel img {
+    width: 100%;       /* Full width */
+    height: 100%;      /* Full height */
+    object-fit: cover; /* Ensure image fills the container without stretching */
+  }
+
+  /* Light-colored carousel controls */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.8); /* Light-colored arrow */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+    background-color: rgba(255, 255, 255, 1); /* Fully white on hover */
+  }
+
+  /* Style for carousel captions to enhance visibility */
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    color: rgba(255, 255, 255, 1);       /* Fully white and light text color */
+    padding: 10px;
+    border-radius: 10px;                  /* Optional: round the background */
+    animation: fadeIn 1.5s ease-in-out;   /* Fade-in animation */
+  }
+
+  /* Fade-in effect for text on each slide */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Adjusting the font size to make it more readable */
+  .carousel-caption h5 {
+    font-size: 1.75rem;  /* Increase heading size */
+    font-weight: bold;   /* Make the heading bold */
+  }
+
+  .carousel-caption p {
+    font-size: 1.25rem;  /* Increase paragraph size */
+  }
+
+  /* Adjusting the font size to make it more readable */
+  .carousel-caption h5 {
+    font-size: 1.75rem;  /* Increase heading size */
+    font-weight: bold;   /* Make the heading bold */
+  }
+
+  .carousel-caption p {
+    font-size: 1.25rem;  /* Increase paragraph size */
+  }
+  h2 {
+    margin-bottom: 30px; /* Adds space below the heading */
+    text-align: center;   /* Center the heading */
+    font-size: 2.5rem;    /* Increase font size */
+  }
+
+  /* Add margin at the top of the card section */
+  .row {
+    margin-top: 20px; /* Adds space between the heading and the cards */
+  }
+
+  /* Adjust card image height for consistent display */
+  .card-img-top {
+    object-fit: cover; /* Ensures the images fit nicely in the card */
+    height: 225px;     /* Fixed height for uniformity */
+  }
+
+  /* Add padding to the entire container */
+  .container {
+    padding: 20px;
+  }
+</style>
+
+<div id="carouselExampleFade" class="carousel carousel-fade container" data-bs-ride="carousel" >
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{% static 'img10.jpg' %}" class="d-block w-100" alt="First slide image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First Slide Label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'img11.jpg' %}" class="d-block w-100" alt="Second slide image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second Slide Label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'img9.jpg' %}" class="d-block w-100" alt="Third slide image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third Slide Label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'img7.jpg' %}" class="d-block w-100" alt="Fourth slide image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fourth Slide Label</h5>
+        <p>Some representative placeholder content for the fourth slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'img8.jpg' %}" class="d-block w-100" alt="Fifth slide image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fifth Slide Label</h5>
+        <p>Some representative placeholder content for the fifth slide.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+<div class="container">
+  <h2>This is our website</h2>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col">
+      <div class="card shadow-sm">
+        <!-- Replaced placeholder with an image from Unsplash -->
+        <img src="https://picsum.photos/400/225?random=1" alt="Random Image 1" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=2" alt="Random Image 2" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=3" alt="Random Image 3" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=4" alt="Random Image 4" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=5" alt="Random Image 5" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=6" alt="Random Image 6" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=7" alt="Random Image 7" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=8" alt="Random Image 8" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/400/225?random=9" alt="Random Image 9" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load static %}  <!-- Load static files tag at the top -->
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block body %}
+<div class="container d-flex justify-content-center">
+    <img src="{% static 'img7.jpg' %}" alt="Contact Image" style="height: 300px; width: 1200px;">
+</div>
+
+
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form class="row g-3 needs-validation" novalidate method="post" action="/contact">
+        {% csrf_token %}
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip01" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="name" id="validationTooltip01" required>
+            <div class="valid-tooltip">Looks good!</div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip02" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="lname" id="validationTooltip02" required>
+            <div class="valid-tooltip">Looks good!</div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip03" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" id="validationTooltip03" required>
+            <div class="invalid-tooltip">Please provide a valid email.</div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip04" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" name="phone" id="validationTooltip04" required>
+            <div class="invalid-tooltip">Please provide a valid phone number.</div>
+        </div>
+        <div class="col-12 position-relative">
+            <label for="validationTooltip05" class="form-label">Message</label>
+            <textarea class="form-control" name="message" id="validationTooltip05" rows="4" required></textarea>
+            <div class="invalid-tooltip">Please enter a message.</div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+{% endblock body %}
